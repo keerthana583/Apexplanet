@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Carousel with API</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #057935ea, #0a3e2e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .main {
+      width: 90%;
+      max-width: 380px;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 25px;
+      border-radius: 15px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .header h2 {
+      color: #0c9e50;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 320px;
+    }
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #cdcccdbd;
+      border-radius: 15px;
+      padding: 15px;
+      transition: transform 0.5s, box-shadow 0.5s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .swiper-slide:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .info h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+    .info p {
+      font-size: 14px;
+      color: #1e2627;
+      text-align: center;
+    }
+    .swiper-pagination {
+      text-align: center;
+      bottom: 10px !important;
+    }
+
+    @media (max-width: 600px) {
+      .main {
+        width: 95%;
+        padding: 15px;
+      }
+      .swiper-slide img {
+        height: 160px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="header">
+      <h2>Apex Planet</h2>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="carousel-wrapper">
+        <!-- Slides will be injected here -->
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const apiData = [
+      {
+        title: "HTML",
+        desc: "HTML course overview for all levels.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKtP3UkvjPsGylSp1eL_w1BiICX9x0s55_yw&s"
+      },
+      {
+        title: "CSS",
+        desc: "Learn CSS3 for beautiful styling.",
+        img: "https://tse3.mm.bing.net/th?id=OIP.ZNFNOisnYdhUgYlcv_bq6QHaD4&pid=Api&P=0&h=180"
+      },
+      {
+        title: "Web designing",
+        desc: "Learn the fundamentals of design.",
+        img:"https://tse2.mm.bing.net/th?id=OIP.IsWMw-jEvbpL5OgWf_sINgHaEn&pid=Api&P=0&h=180"
+      },
+      {
+        title: "AI",
+        desc: " It describes a variety of models such as search, logic, Bayes nets,MDPs.",
+        img: "https://tse3.mm.bing.net/th?id=OIP.DTDtcsIGEn2FGvA5zC0L7QHaEK&pid=Api&P=0&h=180"      
+    },
+      {
+        title: "Data Science",
+        desc: "Data science tools and techniques.",
+        img: "https://tse4.mm.bing.net/th?id=OIP.xVFgiW5_VCxUuW8UNJ_UggHaEK&pid=Api&P=0&h=180"
+      }
+    ];
+
+    const wrapper = document.getElementById("carousel-wrapper");
+
+    apiData.forEach(item => {
+      const slide = document.createElement("div");
+      slide.className = "swiper-slide";
+      slide.innerHTML = `
+        <img src="${item.img}" alt="${item.title}" />
+        <div class="info">
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </div>
+      `;
+      wrapper.appendChild(slide);
+    });
+
+    const swiper = new Swiper(".swiper-container", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      centeredSlides: true,
+      loop: true,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+</html>
