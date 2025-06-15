@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanamarlapudi.keerthana | Creative Software Engineer</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .dark .skill-bar {
+            background-color: #374151;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 3px;
+            background-color: #3b82f6;
+            transition: width 1s ease-in-out;
+        }
+        
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on the 'dark' class
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#172554',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-xl font-bold text-gray-900 dark:text-white">Kanamarlapudi Keerthana</a>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">About</a>
+                    <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+                    <button id="theme-toggle" class="ml-4 text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </nav>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+                <button id="mobile-theme-toggle" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:inline mr-2"></i>
+                    Toggle Theme
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-primary-600 dark:text-primary-400">k.keerthana</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Creative Software Engineer</h2>
+                <p class="text-lg mb-8 text-gray-600 dark:text-gray-400">
+                    I bring ideas to life through clean,thoughtful and with user-centric design,user friendly experience.I love creating intuitive, user-friendly applications that solve real-world problems.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                    <div class="absolute inset-0 bg-primary-100 dark:bg-primary-900 rounded-full opacity-20"></div>
+                    <div class="absolute inset-4 bg-primary-200 dark:bg-primary-800 rounded-full opacity-30"></div>
+                    <img src="C:\Users\kanam\Downloads\Smiling Teen Girl with Laptop Digital Generation _ Premium AI-generated image_files\smiling-teen-girl-with-laptop-digital-generation_1265122-5306.jpg" 
+                         alt="keerthana" 
+                         class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-2xl my-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">Who I Am</h3>
+                <p class="mb-4 text-gray-600 dark:text-gray-400">
+                    I'm a passionate software engineer with a good foundation in creating web applications and solving complex problems with code. I specialize in building responsive, accessible, and performant digital experiences.
+                </p>
+                <p class="mb-4 text-gray-600 dark:text-gray-400">
+                    My journey in tech started with a curiosity about how things work, which led me to pursue computer science and eventually specialize in full-stack web development with a focus on modern JavaScript frameworks and Python.
+                </p>
+                <p class="text-gray-600 dark:text-gray-400">
+                    When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new AI technologies.
+                </p>
+            </div>
+            
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">My Skills</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar bg-gray-200 dark:bg-gray-700">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>JavaScript</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar bg-gray-200 dark:bg-gray-700">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>HTML/CSS</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar bg-gray-200 dark:bg-gray-700">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>AI/ML</span>
+                            <span>55%</span>
+                        </div>
+                        <div class="skill-bar bg-gray-200 dark:bg-gray-700">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Data Science</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar bg-gray-200 dark:bg-gray-700">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- To Do List App Section -->
+    <section id="todo-app" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-2xl my-12">
+        <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                     alt="To Do List App" 
+                     class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+            <div class="text-center md:w-1/2">
+                <h2 class="text-2xl font-semibold mb-6">To Do List App <span class="text-primary-600 dark:text-primary-400">Product listing page</span></h2>
+                <p class="text-gray-600 dark:text-gray-400">Note-taking app so tasks or notes are saved and retrieved using localStorage.</p><br>
+                <p class="text-gray-600 dark:text-gray-400">Product listing page that sorts products by categories like electronics, clothing, books and orders them based upon minimum rating, maximum rating, minimum price, maximum price with advanced features like light mode and dark mode.</p><br>
+                <div class="flex space-x-4 justify-center">
+                    <a href="C:\Html,Css,JS\task2.html" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Take note
+                    </a>
+                    <a href="C:\Html,Css,JS\task-3\task4.html" class="border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 hover:bg-primary-50 dark:hover:bg-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
+                        Product listing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">My Projects</h2>
+            <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1673515335048-ace62cf73a26?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Wanderlust Travel App" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Wanderlust Travel App</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A comprehensive travel planning application that helps users discover destinations, plan itineraries, and book accommodations.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">CSS</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">View Project →</a>
+                </div>
+            </div>
+            
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="c:\Users\kanam\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\C7BB202FDE90B74B0F6BD323D23B5C4B\WhatsApp Image 2024-08-11 at 11.29.20_ca3777df.jpg" 
+                         alt="Community Connect" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Community Connect</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A social service platform connecting volunteers with local organizations and community service opportunities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">Java</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">xml</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">Firebase</span>
+                    </div>
+                    <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">View Project →</a>
+                </div>
+            </div>
+            
+            <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                         alt="Portfolio Website" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A responsive personal portfolio website showcasing projects, skills, and contact information with dark/light mode.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">CSS</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                    <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-2xl my-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+            <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                <p class="mb-6 text-gray-600 dark:text-gray-400">
+                    Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Email</h4>
+                            <a href="mailto:Kanamarlapudikeerthana555@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">Kanamarlapudikeerthana555@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-phone-alt text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Phone</h4>
+                            <a href="tel:+919292735848" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">+91 9292735848</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Location</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Guntur,AP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex space-x-4">
+                    <a href="https://github.com/keerthana583" class="bg-gray-800 dark:bg-gray-700 text-white p-3 rounded-full hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/keerthana-kanamarlapudi-2207a0283" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject" 
+                               class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" required 
+                                  class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 text-gray-800 dark:text-gray-200"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-200 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-600 dark:text-gray-400">
+                &copy; <span id="year"></span> Kanamarlapudi keerthana. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // In a real application, you would send this data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Check if skills section is in view and animate
+        function checkScroll() {
+            const aboutSection = document.getElementById('about');
+            const aboutPosition = aboutSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (aboutPosition < screenPosition) {
+                animateSkillBars();
+                window.removeEventListener('scroll', checkScroll);
+            }
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        
+        // Initialize theme based on localStorage or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
