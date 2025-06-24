@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blog - Your Everyday Essentials</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        /* Custom styles for hamburger menu */
+        .hamburger-menu {
+            display: none; /* Hidden by default on larger screens */
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            z-index: 50;
+        }
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 4rem; /* Adjust based on header height */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            z-index: 40;
+        }
+        .nav-links.active a {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+            .nav-links {
+                display: none; /* Hide by default on mobile */
+            }
+        }
+
+        /* Star ratings */
+        .stars {
+            color: #fbd38d; /* Tailwind yellow-300 */
+        }
+        .star-empty {
+            color: #d1d5db; /* Tailwind gray-300 */
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header - Business Title & Navigation -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-indigo-700">Stationery@Style</h1>
+            <nav class="nav-links flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Stationery</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Men's Accessories</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Women's Accessories</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">About Us</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+                <a href="#" class="text-indigo-600 font-semibold">Blog</a>
+            </nav>
+            <div class="hamburger-menu md:hidden" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-8">
+        <!-- Main Image & Business Info -->
+        <section class="mb-12">
+            <img data-src="C:\Users\kanam\Downloads\office.webp" alt="Everyday Essentials" class="w-full h-auto rounded-lg shadow-lg mb-8 lazy-load">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">Discover Quality, Style & Joy!</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-center italic">
+                "The journey of a thousand miles begins with a single step, and the perfect accessory."
+            </p>
+            <p class="text-gray-600 text-justify mb-8">
+                Welcome to "The Stationery@Style", your one-stop destination for an exquisite range of stationery and stylish accessories for both men and women. We believe that everyday essentials should not only be functional but also inspire joy and reflect your unique personality. From premium notebooks that make your thoughts flow effortlessly, to elegant pens that glide across the page, our stationery collection is curated to enhance your productivity and creativity.
+                <br><br>
+                For the modern man, we offer a sophisticated selection of wallets, ties, watches, and cufflinks that add a touch of class to any ensemble. Each piece is chosen for its superior craftsmanship and timeless design, ensuring you make a statement wherever you go. Our women's accessories feature a dazzling array of handbags, scarves, jewelry, and fashion-forward pieces designed to complement every style, from casual chic to evening elegance. We understand that details matter, and our accessories are crafted to perfection, ensuring durability and enduring beauty.
+                <br><br>
+                At "The Stationery@Style", quality is our cornerstone. We partner with artisans and brands who share our commitment to excellence, ensuring that every product you purchase is of the highest standard. Our passion is to provide you with items that not only serve their purpose but also bring a smile to your face. We invite you to explore our diverse collections and find those perfect essentials that resonate with your lifestyle. Your satisfaction is our priority, and we are dedicated to providing an unparalleled shopping experience. Come, experience the difference – where quality meets impeccable style!
+            </p>
+        </section>
+
+        <!-- Video Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Watch Our Story</h2>
+            <div class="relative overflow-hidden rounded-lg shadow-lg" style="padding-top: 56.25%;">
+                <iframe class="absolute top-0 left-0 w-full h-full" src="C:\Users\kanam\Downloads\Stationary@style.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Latest Musings & Guides</h2>
+            <div class="flex justify-center space-x-4 mb-8">
+                <button id="sortRecent" class="px-6 py-3 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 transition duration-300 shadow-md">Recent Blogs</button>
+                <button id="sortRatings" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition duration-300 shadow-md">Top Rated</button>
+            </div>
+
+            <div id="blogPosts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-lg shadow-md overflow-hidden blog-item" data-rating="5" data-date="2023-10-26">
+                    <img data-src="C:\Users\kanam\Downloads\stand.webp" alt="Stationery" class="w-full h-48 object-cover lazy-load">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">The Art of Journaling: Your Perfect Stationery Guide</h3>
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Discover how the right notebook and pen can transform your journaling experience. Uncover tips for choosing your perfect tools...</p>
+                        <a href="#" class="text-indigo-600 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-lg shadow-md overflow-hidden blog-item" data-rating="4" data-date="2023-11-15">
+                    <img data-src="C:\Users\kanam\Downloads\pen.webp" alt="Men's Accessories" class="w-full h-48 object-cover lazy-load">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Essential Men's Accessories Every Man Needs</h3>
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star star-empty"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Elevate your style with these must-have accessories. From watches to wallets, find out what defines true sophistication...</p>
+                        <a href="#" class="text-indigo-600 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-lg shadow-md overflow-hidden blog-item" data-rating="5" data-date="2023-12-01">
+                    <img data-src="C:\Users\kanam\Downloads\hairpins.webp" alt="Women's Accessories" class="w-full h-48 object-cover lazy-load">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Accessorize Like a Pro: Women's Fashion Guide</h3>
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Unlock the secrets to perfecting your look with the right accessories. Learn how to pick the perfect bag or jewelry...</p>
+                        <a href="#" class="text-indigo-600 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ratings & Feedback -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Customer Love & Feedback</h2>
+            <div class="text-center mb-6">
+                <p class="text-xl text-gray-700">Overall Rating: <span class="text-2xl font-bold text-yellow-500">4.8/5</span> from 500+ reviews</p>
+                <div class="stars text-3xl mt-2">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <form class="space-y-4">
+                <p class="text-center text-gray-600 mb-4">We'd love to hear from you! Share your experience with us.</p>
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                    <input type="text" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                    <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="feedback" class="block text-sm font-medium text-gray-700">Your Feedback</label>
+                    <textarea id="feedback" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer - Contact & Address -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-2xl font-bold mb-2">Stationery@Style</h3>
+                <p class="text-gray-400">Your daily dose of style and utility.</p>
+            </div>
+            <div class="mb-6 md:mb-0">
+                <h4 class="text-xl font-semibold mb-3">Contact Us</h4>
+                <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i>Order by Call: <a href="tel:+1234567890" class="text-indigo-400 hover:underline">+1 (234) 567-890</a></p>
+                <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>123 Retail Lane, Style City, SC 98765</p>
+                <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i>info@StationeryStyle.com</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Follow Us</h4>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-8">
+            &copy; 2025 The Stationery@Style. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Lazy loading for images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyLoadImages = document.querySelectorAll(".lazy-load");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove("lazy-load"); // Remove class after loading
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: "0px 0px 100px 0px" // Load images when 100px from viewport
+            });
+
+            lazyLoadImages.forEach(image => {
+                observer.observe(image);
+            });
+        });
+
+        // Blog sorting functionality
+        const blogPostsContainer = document.getElementById('blogPosts');
+        const blogItems = Array.from(document.querySelectorAll('.blog-item'));
+        const sortRecentBtn = document.getElementById('sortRecent');
+        const sortRatingsBtn = document.getElementById('sortRatings');
+
+        // Function to render blog posts based on current order
+        function renderBlogPosts(posts) {
+            blogPostsContainer.innerHTML = ''; // Clear current posts
+            posts.forEach(post => blogPostsContainer.appendChild(post));
+        }
+
+        // Initial render (default to recent)
+        blogItems.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+        renderBlogPosts(blogItems);
+        sortRecentBtn.classList.add('bg-indigo-500', 'text-white');
+        sortRatingsBtn.classList.remove('bg-indigo-500', 'text-white');
+        sortRatingsBtn.classList.add('bg-gray-200', 'text-gray-700');
+
+
+        sortRecentBtn.addEventListener('click', () => {
+            blogItems.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+            renderBlogPosts(blogItems);
+            sortRecentBtn.classList.add('bg-indigo-500', 'text-white');
+            sortRecentBtn.classList.remove('bg-gray-200', 'text-gray-700');
+            sortRatingsBtn.classList.remove('bg-indigo-500', 'text-white');
+            sortRatingsBtn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+
+        sortRatingsBtn.addEventListener('click', () => {
+            blogItems.sort((a, b) => parseInt(b.dataset.rating) - parseInt(a.dataset.rating));
+            renderBlogPosts(blogItems);
+            sortRatingsBtn.classList.add('bg-indigo-500', 'text-white');
+            sortRatingsBtn.classList.remove('bg-gray-200', 'text-gray-700');
+            sortRecentBtn.classList.remove('bg-indigo-500', 'text-white');
+            sortRecentBtn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+
+        // Basic form submission handler (prevent default)
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // In a real application, you would send this data to a server.
+            console.log("Feedback submitted!");
+            // You could show a success message to the user here instead of alert
+            const feedbackForm = this;
+            const messageBox = document.createElement('div');
+            messageBox.textContent = 'Thank you for your feedback!';
+            messageBox.style.cssText = 'position: fixed; top: 20%; left: 50%; transform: translate(-50%, -50%); background-color: #4CAF50; color: white; padding: 15px 30px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2);';
+            document.body.appendChild(messageBox);
+            setTimeout(() => {
+                messageBox.remove();
+                feedbackForm.reset(); // Clear the form
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
